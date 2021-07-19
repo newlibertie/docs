@@ -1,0 +1,108 @@
+=================== Schema ==========================
+
+Users
+	id
+	url
+	name
+	houseKeeping
+		creationTS
+		lastModificationTS
+	isActive?
+	audit
+	payment
+	abuse
+	others (may be in another table)
+	
+	
+Polls
+	id
+	tittle
+	tags | array of tags
+	parameters	| h is computed, not stored
+		largePrimeP
+		generatorG
+		privateKeyS
+	creator
+	scope
+		*geography
+			inclusion
+			exclusion
+		timeRange : (openingTS, closingTS)
+		*affiliations :
+			inclusion
+			exclusion
+	houseKeeping
+		creationTS
+		lastModificationTS
+		publishedTS
+		openTS
+		closedTS
+	status	: created | published | open | closed
+	type	:	simple | priority order ranking | weights  /* interpreter to interpret the json */
+	choices : json string 
+	voteCount
+	        /* perhaps currentCountEstimate */
+		likely
+		maximum
+			
+Ballots :
+	pollId
+	voterId
+	value : string json( eg: array of (T, C, D) )
+	creationTS
+	
+	
+VoterDisqualification
+	pollId
+	voterId
+	tsstart
+	tsend
+	reasonstart : text
+	reasonend : text
+
+	
+
+==================== REST API ============================
+
+
+Poll
+	Create a Poll
+	Update a Poll (restricted)
+	Delete a Poll (restricted)
+	Open a Poll (restricted)
+	Close a Poll (restricted)
+	Get Poll Details
+	Compute Poll Result (restricted)
+
+Disqualification
+	Disqualify a Voter (restricted)
+	Qualify a Voter : Needed only for a disqualified voter (restricted)
+
+
+Ballots
+	Cast a Ballot
+
+
+=================== Web/JS Features ===================
+	Publish a Poll : to one or more channels
+	Cast a ballot
+    
+	
+=================== HIGHER LEVEL ISSUES ===================
+
+* Combine several polls
+
+* Attribute geography to polls and people
+    - note that this can only be best effort
+    - enforcing component has to support inclusion and exclusion
+
+* Polls that disclose members only when certain conditions are met
+    - eg: more than X positive votes have been received
+    ?? what is positive may not always have an answer!
+    
+ * Polls with incentive for higher participation
+
+ * During the polling, give higher weightage to the choices made by members in regions with higher rate 
+   of participation.  apply a "vote weight" W where:
+       W = n/N   .... where N is total number of voters and n voted.
+    

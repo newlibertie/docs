@@ -1,0 +1,18 @@
+
+
+## Raw Notes May 22-28
+
+Once the event recording is complete, it is replicated to multiple sites (5+) for secure storage.
+
+A video recording event is identified by GUID. Video of the event is initially stored locally to the backend service in chunks of some period length (1 minute). Once video recording of an event is complete, it is sent to multiple secure storage locations.
+
+A video recording event starts a workflow for its raw data record identified by a GUID. Next in its workflow is its quality check, then its validation which will have validation by algorithms not involving human interaction and then validation by human user through voting described elsewhere.
+
+Video validation by human input: A token will be sent to user based on some criteria. User will be told some details about the video to be validated including its title, location and time of recording, its play length, its other video properties. User may choose to participate in this activity. User input in form of up/down vote and some more inputs like confidence factor, appropriateness, its quality, its categories, labels, hashtags, etc. If user abandons this activity then that user’s input is not counted and a quality score for that user is updated. The selection of user for this video validation step can be based on some qualifying factors known about that user (or not, initially).
+
+A video may be recorded as a public or private video. A private video is not made available to the public viewers
+
+When some one starts secure recording, app sends a ping to all bluetooth neighbors informing them of this device starting video recording and some other needed information for them to take informed decision to participate in recording the event.
+
+Similar to comments and likes of a video on platforms like YouTube, a special user input may be taken by our application. A video viewer may vouch for him/her to have personally witnessed that event, giving some details, some of which may be verifiable. This will enable increasing weight of the video’s credibility.
+
