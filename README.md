@@ -35,7 +35,7 @@ Add your name to people.md
 
 Make a pull request and merge for significant changes
 
-Typos and such can be pushed to master but need more thoughtful comments
+Typos and such meta/higher level stuff can be pushed to master but need more thoughtful comments
 
 
 ## Repos
@@ -53,6 +53,21 @@ Typos and such can be pushed to master but need more thoughtful comments
 | olddocs | Old documents with lot of irrelevant material (to be deleted)
 
 
-## TODO
+## Files within this repo
 
-Files & dirs within this repo need explanation and context as well
+Business and functional requirements etc are described to some detail in
+the two presentations :
+
+ - RaviReporter.pptx , which is a full end to end but shallow coverage of
+   the technical correctness and properties of the Ravi Reporter apps
+
+ - RaviReporterIntro.pptx , is a quick intro as to why Ravi Reporter is important.
+
+Tasklist.csv and TODO.md are older files with such contents that will be maintained
+as isses of this repo.   Once these are ported we could delete these files
+
+technology directory has tech specs, meeting-notes Archive assets finance and planning are created to hold the appropriate documents.
+
+
+
+
